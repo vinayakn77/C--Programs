@@ -1,27 +1,31 @@
-#include<iostream>
-using namespace std;
-int linearSearch(int arr[],int n,int key){
-    for (int i=0;i<n;i++){
-        if(arr[i] == key){
-            return i;
-        }
-    }
-    return -1;
-}
+import java.util.*;
 
-int main() {
-    int n;
-    cin>>n;
-    
-    int arr[n];
-    for(int i=0;i<n;i++){
-        cin>>arr[i];
+class Main {
+    public static void linearSearch(int[] arr, int item) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == item) {
+                System.out.println(item + " Item found at index " + i);
+                return;
+            }
+        }
+        System.out.println("Not found");
     }
-    
-    int key;
-    cin>>key;
-    
-    cout<<linearSearch(arr,n,key)<<endl;
-    return 0;
-    
+
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the size of the array: ");
+        int n = sc.nextInt();
+        
+        int[] arr = new int[n];
+        
+        System.out.print("Enter " + n + " array elements: ");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        System.out.print("Enter the value to be searched: ");
+        int item = sc.nextInt();
+        
+        linearSearch(arr, item);
+    }
 }
